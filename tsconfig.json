@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "./lib",
     "allowJs": true,
     "alwaysStrict": true,
     "esModuleInterop": true,
