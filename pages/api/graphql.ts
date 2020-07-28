@@ -1,5 +1,5 @@
 import { ApolloServer } from 'apollo-server-micro'
-import { schema } from 'lib/schema'
+import { schema } from '../../lib/schema'
 
 const apolloServer = new ApolloServer({ schema })
 
@@ -9,4 +9,4 @@ export const config = {
   },
 }
 
-export default apolloServer.createHandler({ path: '/api/graphql' })
+export default apolloServer.createHandler({ path: 'http://localhost:4006' })

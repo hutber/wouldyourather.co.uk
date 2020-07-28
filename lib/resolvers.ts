@@ -1,9 +1,10 @@
-import { QueryResolvers } from 'QL/type-defs.graphqls'
-import { ResolverContext } from 'apollo'
+import { ResolverContext } from 'lib/apollo'
+
+import { QueryResolvers } from 'lib/QL/type-defs.graphqls'
 
 const Query: Required<QueryResolvers<ResolverContext>> = {
   viewer(_parent, _args, _context, _info) {
-    return { id: String(1), name: 'John Smith', status: 'cached' }
+    return { userId: String(1), username: 'John Smith', isActive: true, dob: '1', email: 'jamie@hutber.com' }
   },
 }
 

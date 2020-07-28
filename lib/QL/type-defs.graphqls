@@ -1,7 +1,9 @@
 type User {
-  id: ID!
-  name: String!
-  status: String!
+  userId: ID!
+  username: String!
+  email: String!
+  dob: String!
+  isActive: Boolean!
 }
 
 type Query {

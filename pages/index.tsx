@@ -1,14 +1,37 @@
 import Link from 'next/link'
-import { useViewerQuery, ViewerDocument } from 'QL/viewer.graphql'
-import { initializeApollo } from 'apollo'
+import { gql } from 'apollo-boost'
+
+import { initializeApollo } from 'lib/apollo'
+import { useQuery, useMutation } from 'lib/apollo/index'
+
+import { useViewerQuery, ViewerDocument } from 'lib/QL/viewer.graphql'
+
+const query = gql`
+  query {
+    allUsers {
+      edges {
+        node {
+          dob
+          email
+          isActive
+          nodeId
+        }
+      }
+    }
+  }
+`
 
 const Index = () => {
   const { data } = useViewerQuery()
   const { viewer } = data!
 
+  const {
+    data: { allUsers = [] },
+  } = useQuery(query)
+console.info(allUsers)
   return (
     <div>
-      You're signed in as {viewer.name} and you're {viewer.status} go to the{' '}
+      You're signed in as {allUsers[0]?.email} and you're {viewer.isActive} go to the{' '}
       <Link href="/about">
         <a>about</a>
       </Link>{' '}

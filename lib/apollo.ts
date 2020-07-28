@@ -1,7 +1,7 @@
-import { IncomingMessage, ServerResponse } from 'http'
 import { useMemo } from 'react'
 import { ApolloClient } from 'apollo-client'
 import { InMemoryCache, NormalizedCacheObject } from 'apollo-cache-inmemory'
+import { IncomingMessage, ServerResponse } from 'http'
 
 let apolloClient: ApolloClient<NormalizedCacheObject> | undefined
 
@@ -18,7 +18,7 @@ function createIsomorphLink(context: ResolverContext = {}) {
   } else {
     const { HttpLink } = require('apollo-link-http')
     return new HttpLink({
-      uri: '/api/graphql',
+      uri: 'http://localhost:4006/graphql',
       credentials: 'same-origin',
     })
   }
